@@ -1,6 +1,6 @@
 class Response < ActiveRecord::Base
   def self.fetch_data
-    url = 'https://api.typeform.com/v1/form/agfRBf?key=a3dcef6a6c673b888259ce86e24985cbebeabfd5&completed=true&order_by[]=date_submit,desc&limit=1'
+    url = 'https://api.typeform.com/v1/form/agfRBf?key=a3dcef6a6c673b888259ce86e24985cbebeabfd5&completed=true&order_by[]=date_submit,desc&limit=10'
     response = RestClient.get(url)
     data = JSON.parse(response)
 
