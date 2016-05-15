@@ -8,13 +8,10 @@ class Response < ActiveRecord::Base
       token = response['token']
       new_response = ::Response.find_or_initialize_by(token: token)
 
-      # unless new_response.persisted?
-      #   new_response.save
-      #   self.create_github_commit(response)
-      # end
-
-      self.create_github_commit(response)
-
+      unless new_response.persisted?
+        new_response.save
+        self.create_github_commit(response)
+      end
     end; nil
   end
 
