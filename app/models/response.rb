@@ -16,7 +16,7 @@ class Response < ActiveRecord::Base
   end
 
   def self.create_github_commit(response)
-    github = Octokit::Client.new(login: 'hapiben', password: 'Q1W2e3r4')
+    github = Octokit::Client.new(login: ENV['GH_USERNAME'], password: ENV['GH_PASSWORD'])
     repo = 'taxikick/taxikick.github.io'
     ref = 'heads/master'
     sha_latest_commit = github.ref(repo, ref).object.sha
